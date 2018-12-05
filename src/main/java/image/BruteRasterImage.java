@@ -11,6 +11,7 @@ public class BruteRasterImage implements Image {
     public  BruteRasterImage (Color color,int width,int height){
         this.width=width;
         this.height=height;
+        System.out.println("Test");
         for (int matriceWidth=0;matriceWidth<width;matriceWidth++)
             for(int matriceHeight=0;matriceHeight<height;matriceHeight++)
                 this.colors[matriceHeight][matriceHeight]=color;
