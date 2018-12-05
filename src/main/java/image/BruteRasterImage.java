@@ -1,6 +1,7 @@
 package image;
 
 import javafx.scene.paint.Color;
+import util.Matrices;
 
 public class BruteRasterImage implements Image {
     private Color[][] colors;
@@ -11,13 +12,16 @@ public class BruteRasterImage implements Image {
         this.width=width;
         this.height=height;
         colors = new Color[width][height];
-        for(int widthImage=0; widthImage < width ; widthImage++){
-            for (int heightImage=0;heightImage<height;heightImage++){
-                this.colors[heightImage][widthImage]=color;
-            }}
-        //public BruteRasterImage(Color[][] colors){
+        for(int widthImage=0; widthImage < width ; widthImage++) {
+            for (int heightImage = 0; heightImage < height; heightImage++){
+                this.colors[heightImage][widthImage] = color;}
+        }}
+        public BruteRasterImage(Color[][] colors){
+            Matrices.requiresNonNull(colors);
+            Matrices.requiresNonZeroDimensions(colors);
+            this.colors=colors;
 
-    }
+        }
 
 
     @Override
@@ -33,5 +37,4 @@ public class BruteRasterImage implements Image {
     @Override
     public int getWidth() {
         return 0;
-    }
-}
+    }}
